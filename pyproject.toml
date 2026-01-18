@@ -1,0 +1,25 @@
+[project]
+name = "mycontabile"
+version = "0.1.0"
+description = "Generate a static HTML schedule for a UK Filk convention from a CSV"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "jinja2",
+    "pillow",
+    "python-dateutil",
+]
+
+[dependency-groups]
+dev = [
+    "ruff",
+]
+
+[tool.uv]
+package = true
+
+[project.scripts]
+generate = "main:main"
+
+[tool.setuptools]
+py-modules = ["main", "scripts"]

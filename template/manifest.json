@@ -1,0 +1,15 @@
+{
+  "name": {{ convention_name | tojson }},
+  "short_name": {{ convention_name | tojson }},
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#E0DDE0",
+  "icons": [
+    {
+      "src": "images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

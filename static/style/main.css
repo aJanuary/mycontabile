@@ -1,0 +1,102 @@
+:root {
+	--bg-color: #ffffff;
+	--text-color: #000000;
+	--header-bg: #E0DDE0;
+	--header-border: #CCC9CC;
+	--room-color: #777777;
+	--now-bg: #F1F2DD;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: #1a1a1a;
+		--text-color: #e0e0e0;
+		--header-bg: #2d2a2d;
+		--header-border: #3d3a3d;
+		--room-color: #999999;
+		--now-bg: #3d3e2d;
+	}
+}
+
+body {
+	margin: 0 0 0 0;
+	font-family: sans-serif;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+}
+
+@media all and (min-width: 600px) {
+	body {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(300px, 600px);
+		align-items: start;
+	}
+
+	header {
+		position: sticky;
+		top: 0;
+	}
+}
+
+header {
+	background-color: var(--header-bg);
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 1.5em;
+	padding: 0.5em 0;
+	opacity: 0.97;
+	z-index: 1;
+	border-bottom: solid 1px var(--header-border);
+}
+
+header h2 {
+	margin: 0 0 0 0.5em;
+	font-size: 1em;
+}
+
+article {
+	position: relative;
+	padding: 0.5em;
+	border-bottom: solid 1px var(--header-border);
+}
+
+h3, p {
+	margin: 0;
+}
+
+h3 {
+	font-size: 1.15em;
+	margin-right: 4em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.room {
+	position: absolute;
+	color: var(--room-color);
+	left: 8em;
+}
+
+.bkmk {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 4em;
+	background-image: url('../images/bookmark_none.png');
+	background-repeat: no-repeat;
+    background-position: top right;
+    opacity: 0.8;
+}
+
+.selected {
+	background-image: url('../images/bookmark.png');
+	opacity: 1;
+}
+
+.now {
+	background-color: var(--now-bg);
+}

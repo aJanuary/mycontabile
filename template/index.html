@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ convention_name | e }}</title>
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#E0DDE0" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#2d2a2d" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  </head>
+  <body>
+    {% for day in days %}
+    <section id="{{ day.name }}">
+      <header><h2>{{ day.name }}</h2></header>
+      {% for item in day.programme_items %}
+      <article id="{{ item.id }}">
+        <h3 title="{{ item.title | e }}">{{ item.title | e }}</h3>
+        <p>
+          <time class="start" datetime="{{ item.start_datetime }}"
+            >{{ item.start_time_label | e }}</time
+          >
+          &ndash;
+          <time class="end" datetime="{{ item.end_datetime }}"
+            >{{ item.end_time_label | e }}</time
+          >
+          <span class="room">{{ item.room | e }}</span>
+        </p>
+      </article>
+      {% endfor %}
+    </section>
+    {% endfor %}
+    <script src="script/main.js"></script>
+  </body>
+</html>
