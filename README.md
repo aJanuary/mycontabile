@@ -3,6 +3,8 @@
 Generates a static HTML schedule for a UK Filk convention from a CSV.
 The resulting schedule can be hosted on any static file hosting service.
 
+[Example site](https://ajanuary.github.io/mycontabile/)
+
 ## Requirements
 
 - [uv](https://docs.astral.sh/uv/)
@@ -10,6 +12,10 @@ The resulting schedule can be hosted on any static file hosting service.
 ## Generating a schedule
 
 `uv run generate <convention name> <csv file> <logo> <destination folder>`
+
+For example:
+
+`uv run generate "Example Convention" example/schedule.csv example/logo.png output/example`
 
 **convention name**: Name of the convention. Will be used in the page title.
 
