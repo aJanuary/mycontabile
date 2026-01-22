@@ -3,7 +3,22 @@
 Generates a static HTML schedule for a UK Filk convention from a CSV.
 The resulting schedule can be hosted on any static file hosting service.
 
+## Features
+
 [Example site](https://ajanuary.github.io/mycontabile/)
+
+- Highlights the current programme item
+- Allows items to be bookmarked
+- Generated from a simple CSV file
+- Supports multi-day conventions
+- Can have multiple rooms
+- Can display fuzzy end times like "late"
+
+This is designed for a simple, mostly one track convention across two or three
+days. As such it does not have things like description, search, or filtering.
+If you need a more comprehensive set of features for a more complicated
+convention schedule, I would recommend
+[ConClár](https://github.com/lostcarpark/conclar).
 
 ## Requirements
 
