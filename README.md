@@ -66,13 +66,13 @@ unique.
 
 The start date and time of the programme item.
 
-Required. Should be `yyyy-mm-dd hh:mm` or `dd/mm/yyyy hh:mm`.
+Required. Should be `yyyy-mm-dd hh:mm` or `dd/mm/yyyy hh:mm` in UTC.
 
 ### End
 
 The end date and time of the programme item.
 
-Required. Should be `yyyy-mm-dd hh:mm` or `dd/mm/yyyy hh:mm`.
+Required. Should be `yyyy-mm-dd hh:mm` or `dd/mm/yyyy hh:mm` in UTC.
 
 ### Title
 
