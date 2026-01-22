@@ -7,7 +7,7 @@ import shutil
 import sys
 from dataclasses import dataclass, asdict
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 from dateutil.parser import parse as parse_datetime
 from jinja2 import Environment, FileSystemLoader
@@ -90,23 +90,35 @@ def parse_schedule_csv(csv_file: Path) -> list[Day]:
 
             start_dt = parse_date_flexible(row["Start"])
             end_dt = parse_date_flexible(row["End"])
+
+            # Labels use the original (local) time as entered
             start_time_label = row.get("Start label") or start_dt.strftime("%H:%M")
             end_time_label = row.get("End label") or end_dt.strftime("%H:%M")
             day_date = start_dt.date()
+
+            # Convert to UTC for datetime attributes (naive times assumed UTC)
+            if start_dt.tzinfo:
+                start_dt_utc = start_dt.astimezone(timezone.utc)
+            else:
+                start_dt_utc = start_dt.replace(tzinfo=timezone.utc)
+            if end_dt.tzinfo:
+                end_dt_utc = end_dt.astimezone(timezone.utc)
+            else:
+                end_dt_utc = end_dt.replace(tzinfo=timezone.utc)
 
             item = ProgrammeItem(
                 id=item_id,
                 title=row["Title"],
                 room=row["Room"],
-                start_datetime=start_dt.strftime("%Y-%m-%dT%H:%M"),
-                end_datetime=end_dt.strftime("%Y-%m-%dT%H:%M"),
+                start_datetime=start_dt_utc.strftime("%Y-%m-%dT%H:%MZ"),
+                end_datetime=end_dt_utc.strftime("%Y-%m-%dT%H:%MZ"),
                 start_time_label=start_time_label,
                 end_time_label=end_time_label,
             )
 
             if day_date not in days:
                 days[day_date] = []
-            days[day_date].append((start_dt, item))
+            days[day_date].append((start_dt_utc, item))
 
     return [
         Day(

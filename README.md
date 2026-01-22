@@ -66,13 +66,21 @@ unique.
 
 The start date and time of the programme item.
 
-Required. Should be `yyyy-mm-dd hh:mm` or `dd/mm/yyyy hh:mm` in UTC.
+Should be `yyyy-mm-dd hh:mm` or `dd/mm/yyyy hh:mm`. If you want to use a
+timezone other than UTC, add that to the end. e.g. `2026-01-22 10:00 +0100`.
+This will be displayed as `10:00`.
+
+Required.
 
 ### End
 
 The end date and time of the programme item.
 
-Required. Should be `yyyy-mm-dd hh:mm` or `dd/mm/yyyy hh:mm` in UTC.
+Should be `yyyy-mm-dd hh:mm` or `dd/mm/yyyy hh:mm`. If you want to use a
+timezone other than UTC, add that to the end. e.g. `2026-01-22 11:00 +0100`.
+This will be displayed as `11:00`.
+
+Required.
 
 ### Title
 
